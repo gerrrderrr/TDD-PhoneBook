@@ -12,12 +12,14 @@ public class PhoneBook {
     public int add(String name, String phoneNumber) {
         if (phoneBook.containsValue(phoneNumber)) {
             System.out.println("Контакт с номером " + phoneNumber + " существует");
+        } else if (phoneBook.containsKey(name)) {
+            System.out.println("Контакт с именем " + name + " уже существует");
         } else {
             phoneBook.put(name, phoneNumber);
             System.out.println("Контакт " + name + " : " + phoneBook.get(name) + " добавлен");
             return phoneBook.size();
         }
-        return 0;
+        return phoneBook.size();
     }
 
     public String findByNumber(String phoneNumber) {
@@ -34,6 +36,6 @@ public class PhoneBook {
     }
 
     public String findByName(String name) {
-        return null;
+        return phoneBook.getOrDefault(name, "Данного контакта не существует");
     }
 }
