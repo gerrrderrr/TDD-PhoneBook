@@ -1,4 +1,5 @@
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class PhoneBook {
@@ -10,7 +11,7 @@ public class PhoneBook {
 
     public int add(String name, String phoneNumber) {
         if (phoneBook.containsValue(phoneNumber)) {
-            System.out.println("Контакт с таким номером существует: " + phoneBook.get(name));
+            System.out.println("Контакт с номером " + phoneNumber + " существует");
         } else {
             phoneBook.put(name, phoneNumber);
             System.out.println("Контакт " + name + " : " + phoneBook.get(name) + " добавлен");
@@ -20,6 +21,15 @@ public class PhoneBook {
     }
 
     public String findByNumber(String phoneNumber) {
-        return null;
+        if (!phoneBook.containsValue(phoneNumber)) {
+            return "Данного номера не существует";
+        } else {
+            return Objects.requireNonNull(phoneBook.entrySet()
+                            .stream()
+                            .filter(entry -> entry.getValue().equals(phoneNumber))
+                            .findFirst()
+                            .orElse(null))
+                    .getKey();
+        }
     }
 }
