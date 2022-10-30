@@ -40,4 +40,20 @@ public class PhoneBookTest {
         book.add(name3, phoneNumber3);
         assert book.findByName(name3).equals(phoneNumber3) : "Искомый номер телефона не совпадает с действительным";
     }
+
+    @Test
+    public void printAllNamesTest() {
+        PhoneBook book = new PhoneBook();
+        String name1 = "C";
+        String phoneNumber1 = "TEST PHONE NUMBER C";
+        String name2 = "A";
+        String phoneNumber2 = "TEST PHONE NUMBER A";
+        String name3 = "B";
+        String phoneNumber3 = "TEST PHONE NUMBER B";
+        book.add(name1, phoneNumber1);
+        book.add(name2, phoneNumber2);
+        book.add(name3, phoneNumber3);
+        String expected = "[" + name2 + ", " + name3 + ", " + name1 + "]";
+        assert book.printAllNames().equals(expected);
+    }
 }

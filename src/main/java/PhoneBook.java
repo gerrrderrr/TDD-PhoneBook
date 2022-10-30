@@ -38,4 +38,8 @@ public class PhoneBook {
     public String findByName(String name) {
         return phoneBook.getOrDefault(name, "Данного контакта не существует");
     }
+
+    public String printAllNames() {
+        return null;
+    }
 }
