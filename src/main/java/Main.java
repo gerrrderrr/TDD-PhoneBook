@@ -7,5 +7,6 @@ public class Main {
         System.out.println(book.add("Ally", "2222"));
         System.out.println(book.findByNumber("7777"));
         System.out.println(book.findByName("Emil"));
+        System.out.println(book.printAllNames());
     }
 }
