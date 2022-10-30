@@ -32,4 +32,8 @@ public class PhoneBook {
                     .getKey();
         }
     }
+
+    public String findByName(String name) {
+        return null;
+    }
 }
